@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django Web Framework - Complete Setup Guide</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #092e20;
+            border-bottom: 3px solid #44b78b;
+            padding-bottom: 10px;
+        }
+        h2 {
+            color: #092e20;
+            border-bottom: 2px solid #44b78b;
+            padding-bottom: 5px;
+            margin-top: 40px;
+        }
+        h3 {
+            color: #0a4b33;
+            margin-top: 30px;
+        }
+        h4 {
+            color: #0a4b33;
+            margin-top: 20px;
+        }
+        pre {
+            background-color: #f6f8fa;
+            border: 1px solid #e1e4e8;
+            border-radius: 6px;
+            padding: 16px;
+            overflow-x: auto;
+            font-family: 'Courier New', monospace;
+        }
+        code {
+            background-color: #f6f8fa;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+            color: #d14;
+        }
+        .note {
+            background-color: #fff3cd;
+            border-left: 4px solid #ffc107;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .tip {
+            background-color: #d4edda;
+            border-left: 4px solid #28a745;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .warning {
+            background-color: #f8d7da;
+            border-left: 4px solid #dc3545;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        .command {
+            background-color: #2d2d2d;
+            color: #fff;
+            padding: 12px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #44b78b;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .step-box {
+            background-color: #e8f5e9;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 15px 0;
+        }
+        .mental-map {
+            background-color: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 0 4px 4px 0;
+            font-style: italic;
+        }
+        .folder-structure {
+            background-color: #2d2d2d;
+            color: #fff;
+            padding: 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            line-height: 1.8;
+        }
+        .code-block {
+            background-color: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: 6px;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        .code-block .tag { color: #569cd6; }
+        .code-block .attr { color: #9cdcfe; }
+        .code-block .string { color: #ce9178; }
+        .code-block .comment { color: #6a9955; }
+        .code-block .django { color: #dcdcaa; }
+    </style>
+</head>
+<body>
+    <h1>Django Web Framework - Complete Setup Guide</h1>
+    
+    <p><strong>Version:</strong> 3.0 | <strong>Last Updated:</strong> February 25, 2026</p>
+    
+    <hr>
+    
+    <h2>Module 1: Django Setup</h2>
+    
+    <h3>1.1 Python Setup</h3>
+    
+    <h4>Step 1: Install Python (Recommended: 3.10 to 3.13)</h4>
+    <p>You can install multiple Python versions on the same system. If you already have Python installed, use the py launcher to install another version alongside it:</p>
+    
+    <div class="command">
+        py install 3.13
+    </div>
+    
+    <h4>Step 2: Create a Virtual Environment</h4>
+    <p>Virtual environments create isolated Python environments for your projects:</p>
+    
+    <div class="command">
+        python -m venv env
+    </div>
+    
+    <p>To create an environment with a specific Python version:</p>
+    
+    <div class="command">
+        python3.13 -m venv env313
+    </div>
+    
+    <h4>Step 3: Activate the Virtual Environment (Windows)</h4>
+    
+    <div class="command">
+        env\Scripts\activate
+    </div>
+    
+    <div class="note">
+        <strong>Note:</strong> After activation, you should see (env) in your terminal prompt, indicating the virtual environment is active.
+    </div>
+    
+    <h4>Step 4: Deactivate the Virtual Environment</h4>
+    <p>When you're done working on your project, deactivate the virtual environment:</p>
+    
+    <div class="command">
+        deactivate
+    </div>
+    
+    <div class="tip">
+        <strong>Tip:</strong> You can reactivate the environment anytime by running the activate command again. Always ensure your virtual environment is activated before installing packages or running Django commands.
+    </div>
+    
+    <h3>1.2 Django Project Creation</h3>
+    
+    <h4>Step 1: Install Django</h4>
+    <p>Check if Django is installed; if not, install it using pip:</p>
+    
+    <div class="command">
+        pip install django
+    </div>
+    
+    <h4>Step 2: Create a Django Project</h4>
+    
+    <div class="command">
+        django-admin startproject project_name
+    </div>
+    
+    <p>Replace <code>project_name</code> with your desired project name (e.g., mywebsite, myproject).</p>
+    
+    <h4>Step 3: Create a Django App</h4>
+    
+    <div class="command">
+        python manage.py startapp app_name
+    </div>
+    
+    <table>
+        <tr>
+            <th>App Purpose</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>Blog</td>
+            <td>Handles blog posts, comments, and categories</td>
+        </tr>
+        <tr>
+            <td>Shop</td>
+            <td>Manages products, cart, and orders</td>
+        </tr>
+        <tr>
+            <td>User Accounts</td>
+            <td>Handles user registration, login, and profiles</td>
+        </tr>
+    </table>
+    
+    <div class="note">
+        <strong>Important:</strong> Each app handles a specific functionality of your project. You will write models, views, and templates inside the app to build your project features.
+    </div>
+    
+    <h4>Step 4: Run the Development Server</h4>
+    
+    <div class="command">
+        python manage.py runserver
+    </div>
+    
+    <div class="note">
+        <strong>Note:</strong> This starts a local server at http://127.0.0.1:8000/. The server automatically reloads when you make changes to your code, making development easier.
+    </div>
+    
+    <h2>Module 2: Project and App Structure</h2>
+    
+    <h3>2.1 Views and URLs Configuration</h3>
+    
+    <h4>Step 1: Create URLs File in App</h4>
+    <p>In your app folder, create a file named <code>urls.py</code>:</p>
+    
+    <pre>
+yourapp/
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── tests.py
+    ├── urls.py      &lt;-- Create this file
+    └── views.py
+    </pre>
+    
+    <h4>Step 2: Write Views</h4>
+    <p>In <code>yourapp/views.py</code>, create your views:</p>
+    
+    <pre>
+from django.http import HttpResponse
+
+def index(request):
+    return HttpResponse("&lt;h1&gt;Hello, this is the index page of myApp!&lt;/h1&gt;")
+
+def blog(request):
+    return HttpResponse("&lt;h1&gt;Welcome to the Blog Page&lt;/h1&gt;")
+
+def about(request):
+    return HttpResponse("&lt;h1&gt;About Us&lt;/h1&gt;&lt;p&gt;This is our company information.&lt;/p&gt;")
+    </pre>
+    
+    <div class="note">
+        <strong>Note:</strong> We use <code>HttpResponse</code> for testing. Normally, we use <code>render()</code> to return templates with HTML files.
+    </div>
+    
+    <h4>Step 3: Configure App URLs</h4>
+    <p>In <code>yourapp/urls.py</code>, set up the URL patterns:</p>
+    
+    <pre>
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('blog/', views.blog, name='blog'),
+    path('about/', views.about, name='about'),
+]
+    </pre>
+    
+    <h4>Step 4: Include App URLs in Project</h4>
+    <p>In your project's main <code>urls.py</code> file:</p>
+    
+    <pre>
+from django.contrib import admin
+from django.urls import path, include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('yourapp.urls')),  # Connect your app URLs to the project
+]
+    </pre>
+    
+    <div class="note">
+        <strong>Important Note about URL Routing:</strong> This goes to your app's urls.py to get its paths. The <code>''</code> in the project's urls.py means the paths start at the root, so blog becomes http://127.0.0.1:8000/blog/. If you used <code>'home/'</code> in project's urls.py, the paths would start at http://127.0.0.1:8000/home/. Test it then you will understand.
+    </div>
+    
+    <h4>Step 5: Run Server and View Your Pages</h4>
+    <p>Now run the development server to see your pages in action:</p>
+    
+    <div class="command">
+        python manage.py runserver
+    </div>
+    
+    <p>Open your browser and visit these URLs:</p>
+    <ul>
+        <li><strong>http://127.0.0.1:8000/</strong> - Shows the index page</li>
+        <li><strong>http://127.0.0.1:8000/blog/</strong> - Shows the blog page</li>
+        <li><strong>http://127.0.0.1:8000/about/</strong> - Shows the about page</li>
+    </ul>
+    
+    <h2>Module 3: Models and Database</h2>
+    
+    <h3>3.1 Adding Your App to INSTALLED_APPS</h3>
+    <p><strong>Purpose:</strong> Enables Models, Templates, and Features</p>
+    
+    <div class="step-box">
+        <ol>
+            <li>Go to your project folder and open <code>settings.py</code>.</li>
+            <li>Find the <code>INSTALLED_APPS</code> list.</li>
+            <li>Add your app name at the end of the list, like <code>'myapp',</code>.</li>
+        </ol>
+    </div>
+    
+    <div class="note">
+        <strong>What it does?</strong> This tells Django about your app so it can use its models, templates, and other features.
+    </div>
+    
+    <h3>3.2 Creating Models</h3>
+    <p><strong>Purpose:</strong> Defining Tables in the Database</p>
+    
+    <div class="step-box">
+        <ol>
+            <li>Go to your app folder. Open <code>models.py</code>.</li>
+            <li>Write your models as Python classes. Each class represents a table, and each attribute is a column.</li>
+        </ol>
+    </div>
+    
+    <p><strong>Example Model:</strong></p>
+    <pre>
+from django.db import models
+
+class Product(models.Model):
+    name = models.CharField(max_length=100)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+    description = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.name
+    </pre>
+    
+    <div class="note">
+        <strong>Why?</strong> Models define what data your app will store and how it will be organized in database tables.
+    </div>
+    
+    <h4>After creating or changing models, run migrations:</h4>
+    
+    <div class="command">
+        python manage.py makemigrations
+    </div>
+    <p><strong>This tells Django that something has changed in the models.</strong></p>
+    
+    <div class="command">
+        python manage.py migrate
+    </div>
+    <p><strong>This updates those changes in the database.</strong></p>
+    
+    <h3>3.3 How to Use Parameters in URLs</h3>
+    
+    <h4>Purpose of Parameters:</h4>
+    <p>Parameters are used to identify and access a specific resource (such as a single product, user, or post) for CRUD operations (Create, Read, Update, Delete).</p>
+    
+    <h4>Step 1: Define URL with Parameter</h4>
+    <p>Go to your app's <code>urls.py</code> file. Pass parameters in the URLs where you want to use them:</p>
+    
+    <pre>
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.index, name='index'),
+    path('product/&lt;int:id&gt;/', views.product_detail, name='product_detail'),
+    path('category/&lt;str:category_name&gt;/', views.category_products, name='category_products'),
+]
+    </pre>
+    
+    <table>
+        <tr>
+            <th>Parameter Type</th>
+            <th>Example</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td><code>&lt;int:id&gt;</code></td>
+            <td>/product/5/</td>
+            <td>Matches an integer and passes it as 'id'</td>
+        </tr>
+        <tr>
+            <td><code>&lt;str:name&gt;</code></td>
+            <td>/category/electronics/</td>
+            <td>Matches a string and passes it as 'name'</td>
+        </tr>
+        <tr>
+            <td><code>&lt;slug:slug&gt;</code></td>
+            <td>/post/my-first-post/</td>
+            <td>Matches a slug (letters, numbers, hyphens)</td>
+        </tr>
+    </table>
+    
+    <h4>Step 2: Use Parameter in View</h4>
+    <p>Go to your app's <code>views.py</code> file. Import your models and use the parameter to retrieve specific data:</p>
+    
+    <pre>
+from django.http import HttpResponse
+from .models import Product
+
+def product_detail(request, id):
+    # Use the parameter to find a matching product
+    try:
+        product = Product.objects.get(id=id)
+        return HttpResponse(f"&lt;h1&gt;{product.name}&lt;/h1&gt;&lt;p&gt;Price: ${product.price}&lt;/p&gt;")
+    except Product.DoesNotExist:
+        return HttpResponse("&lt;h1&gt;Product not found&lt;/h1&gt;")
+
+def category_products(request, category_name):
+    # Find all products in a category
+    products = Product.objects.filter(category=category_name)
+    return HttpResponse(f"&lt;h1&gt;Products in {category_name}&lt;/h1&gt;&lt;p&gt;Found {products.count()} products&lt;/p&gt;")
+    </pre>
+    
+    <div class="mental-map">
+        <strong>Mental Map:</strong> One table for all data, one page (view), but to show a different row each time, we use parameters that match a column to get its specific row. Think of it like looking up a word in a dictionary - the parameter is the word you're searching for, and the view returns its definition.
+    </div>
+    
+    <h3>3.4 Creating a Superuser for Admin Panel</h3>
+    
+    <div class="step-box">
+        <ol>
+            <li><strong>Run the createsuperuser command:</strong>
+                <div class="command">python manage.py createsuperuser</div>
+            </li>
+            <li><strong>Provide the required information when prompted:</strong>
+                <ul>
+                    <li>Username (required)</li>
+                    <li>Email address (optional - press Enter to skip)</li>
+                    <li>Password (required - characters won't show while typing)</li>
+                </ul>
+            </li>
+            <li><strong>Run the development server:</strong>
+                <div class="command">python manage.py runserver</div>
+            </li>
+            <li><strong>Access the admin panel:</strong>
+                <p>Open your browser and go to <code>http://127.0.0.1:8000/admin/</code> (remember the admin path we already have in project/urls.py)</p>
+            </li>
+            <li><strong>Log in</strong> with the username and password you just created.</li>
+        </ol>
+    </div>
+    
+    <div class="note">
+        <strong>What you'll see:</strong> After logging in, you will see the admin dashboard. By default, you will already see a table named <strong>Users</strong> (for authentication and user management).
+    </div>
+    
+    <p><strong>From the admin panel, you can:</strong></p>
+    <ul>
+        <li>Create records for any registered tables</li>
+        <li>Edit existing records in any table</li>
+        <li>Delete records from any table</li>
+        <li>Manage users, permissions, and groups</li>
+    </ul>
+    
+    <h3>3.5 Registering Models in admin.py</h3>
+    
+    <div class="step-box">
+        <ol>
+            <li>Go to the <code>admin.py</code> file in your app.</li>
+            <li>Import the models you want to register.</li>
+            <li>Register them using <code>admin.site.register()</code>.</li>
+        </ol>
+    </div>
+    
+    <p><strong>Example admin.py:</strong></p>
+    <pre>
+from django.contrib import admin
+from .models import Product  # Import your model
+
+# Register your models here
+admin.site.register(Product)
+    </pre>
+    
+    <div class="tip">
+        <strong>After registering:</strong> Go to the admin panel and refresh the page. You will now see your registered tables in the admin dashboard alongside the Users table. You can now add, edit, and delete records through the admin interface.
+    </div>
+    
+    <h2>Module 4: Templates</h2>
+    
+    <h3>4.1 What are Templates?</h3>
+    <p>Templates in Django are HTML files that can include dynamic content. They allow you to separate presentation (frontend) from logic (backend).</p>
+    
+    <h4>Why use templates?</h4>
+    <ul>
+        <li><strong>Dynamic content rendering</strong> - Display data from your database</li>
+        <li><strong>Reusability</strong> - Create components once and use them everywhere</li>
+        <li><strong>Clean code separation</strong> - Keep HTML separate from Python logic</li>
+        <li><strong>Flexibility</strong> - Easy to modify design without touching backend code</li>
+    </ul>
+    
+    <h4>Benefits you get:</h4>
+    <ul>
+        <li><strong>Faster development</strong> with less repetition</li>
+        <li><strong>Easier maintenance</strong> - update just the base template to change layout site-wide</li>
+        <li><strong>Consistent design</strong> across the site while still being dynamic</li>
+    </ul>
+    
+    <h3>4.2 Creating Template Structure</h3>
+    
+    <h4>Step 1: Create a templates folder</h4>
+    <p>Inside your Django app, create a folder named <code>templates</code>. You can organize multiple HTML files here.</p>
+    
+    <h4>Step 2: Create the folder structure</h4>
+    <div class="folder-structure">
+    yourapp/
+    ├── templates/
+    │   ├── base.html
+    │   ├── pages/
+    │   │   ├── home.html
+    │   │   └── about.html
+    │   └── components/
+    │       ├── header.html
+    │       ├── footer.html
+    │       └── button.html
+    ├── __init__.py
+    ├── admin.py
+    ├── apps.py
+    ├── models.py
+    ├── urls.py
+    └── views.py
+    </div>
+    
+    <div class="note">
+        <strong>Note:</strong> This is the recommended folder structure for templates. It keeps your code organized and maintainable.
+    </div>
+    
+    <h3>4.3 Creating Components and Using Blocks (Slots)</h3>
+    
+    <p><strong>Components</strong> are reusable HTML parts (like header/footer).<br>
+    <strong>Blocks (or slots)</strong> are placeholders for dynamic content that child templates can fill.</p>
+    
+    <h4>base.html - The Main Layout</h4>
+    <div class="code-block">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;title&gt;<span class="django">{% block title %}My Site{% endblock %}</span>&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;!-- Header component --&gt;
+    <span class="django">{% include 'components/header.html' %}</span>
+
+    &lt;!-- Main content with block (slot) --&gt;
+    &lt;div class="content"&gt;
+        <span class="django">{% block content %}{% endblock %}</span>
+    &lt;/div&gt;
+
+    &lt;!-- Footer component --&gt;
+    <span class="django">{% include 'components/footer.html' %}</span>
+&lt;/body&gt;
+&lt;/html&gt;
+    </div>
+    
+    <h4>components/header.html</h4>
+    <div class="code-block">
+&lt;header&gt;
+    &lt;h1&gt;My Website Header&lt;/h1&gt;
+    &lt;nav&gt;
+        &lt;a href="/"&gt;Home&lt;/a&gt; |
+        &lt;a href="/about/"&gt;About&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+    </div>
+    
+    <h4>components/footer.html</h4>
+    <div class="code-block">
+&lt;footer&gt;
+    &lt;p&gt;&copy; 2026 My Website&lt;/p&gt;
+&lt;/footer&gt;
+    </div>
+    
+    <h4>pages/home.html - Child Template</h4>
+    <div class="code-block">
+<span class="django">{% extends 'base.html' %}</span>
+
+<span class="django">{% block title %}</span>Home - My Site<span class="django">{% endblock %}</span>
+
+<span class="django">{% block content %}</span>
+    &lt;h2&gt;Welcome to My Site!&lt;/h2&gt;
+    &lt;p&gt;This is dynamically rendered content using Django templates.&lt;/p&gt;
+<span class="django">{% endblock %}</span>
+    </div>
+    
+    <h3>4.4 Rendering Templates in Views</h3>
+    
+    <h4>Step 1: Update views.py</h4>
+    <p>Open the <code>views.py</code> file in your app and render your template using the <code>render()</code> function:</p>
+    
+    <pre>
+from django.shortcuts import render
+
+def home(request):
+    # You can pass data to the template
+    context = {
+        'site_name': 'My Awesome Site',
+        'year': 2026
+    }
+    return render(request, 'pages/home.html', context)
+
+def about(request):
+    return render(request, 'pages/about.html')
+    </pre>
+    
+    <h4>Step 2: Update urls.py</h4>
+    <p>In your app's <code>urls.py</code>, create URL paths for these views:</p>
+    
+    <pre>
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('', views.home, name='home'),
+    path('about/', views.about, name='about'),
+]
+    </pre>
+    
+    <h4>Step 3: Run the server and view your pages</h4>
+    <div class="command">
+        python manage.py runserver
+    </div>
+    
+    <p>Open your browser and navigate to:</p>
+    <ul>
+        <li><strong>http://127.0.0.1:8000/</strong> - Should show your home page with header, content, and footer</li>
+        <li><strong>http://127.0.0.1:8000/about/</strong> - Should show your about page</li>
+    </ul>
+    
+    <h3>4.5 Passing Data to Templates</h3>
+    
+    <p>You can pass data from your view to templates using a context dictionary:</p>
+    
+    <pre>
+def product_list(request):
+    # Get data from database
+    products = Product.objects.all()
+    
+    # Pass to template
+    context = {
+        'products': products,
+        'total_products': products.count(),
+        'title': 'Our Products'
+    }
+    return render(request, 'pages/products.html', context)
+    </pre>
+    
+    <p>Then in your template, you can use this data:</p>
+    
+    <div class="code-block">
+&lt;h1&gt;<span class="django">{{ title }}</span>&lt;/h1&gt;
+&lt;p&gt;Total Products: <span class="django">{{ total_products }}</span>&lt;/p&gt;
+
+&lt;ul&gt;
+    <span class="django">{% for product in products %}</span>
+        &lt;li&gt;
+            &lt;h3&gt;<span class="django">{{ product.name }}</span>&lt;/h3&gt;
+            &lt;p&gt;Price: $<span class="django">{{ product.price }}</span>&lt;/p&gt;
+        &lt;/li&gt;
+    <span class="django">{% empty %}</span>
+        &lt;p&gt;No products found.&lt;/p&gt;
+    <span class="django">{% endfor %}</span>
+&lt;/ul&gt;
+    </div>
+    
+    <h3>Summary: How Templates Work</h3>
+    
+    <div class="mental-map">
+        <strong>Template Flow:</strong>
+        <ol>
+            <li><strong>base.html</strong> - The main layout with blocks (slots) for dynamic content</li>
+            <li><strong>components/</strong> - Reusable HTML pieces included in the base template</li>
+            <li><strong>pages/*.html</strong> - Child templates that extend base.html and fill the blocks</li>
+            <li><strong>views.py</strong> - Renders the templates and passes data to them</li>
+            <li><strong>urls.py</strong> - Maps URLs to the views that render these templates</li>
+        </ol>
+    </div>
+    
+    <h3>Complete Project Structure with Templates</h3>
+    
+    <div class="folder-structure">
+    myproject/
+    ├── manage.py
+    ├── myproject/
+    │   ├── __init__.py
+    │   ├── settings.py      (Add your app to INSTALLED_APPS here)
+    │   ├── urls.py          (Include app URLs here)
+    │   └── wsgi.py
+    └── yourapp/
+        ├── __init__.py
+        ├── admin.py          (Register models here)
+        ├── apps.py
+        ├── models.py         (Define database tables here)
+        ├── urls.py           (Define URL patterns with parameters here)
+        ├── views.py          (Write view functions and render templates here)
+        └── templates/
+            ├── base.html      (Main layout with blocks)
+            ├── pages/
+            │   ├── home.html  (Child template extending base)
+            │   └── about.html
+            └── components/
+                ├── header.html (Reusable components)
+                └── footer.html
+    </div>
+    
+    <h3>Quick Reference Commands</h3>
+    
+    <table>
+        <tr>
+            <th>Command</th>
+            <th>Purpose</th>
+        </tr>
+        <tr>
+            <td><code>py install 3.13</code></td>
+            <td>Install Python 3.13 using py launcher</td>
+        </tr>
+        <tr>
+            <td><code>python -m venv env</code></td>
+            <td>Create virtual environment</td>
+        </tr>
+        <tr>
+            <td><code>env\Scripts\activate</code></td>
+            <td>Activate virtual environment (Windows)</td>
+        </tr>
+        <tr>
+            <td><code>deactivate</code></td>
+            <td>Deactivate virtual environment</td>
+        </tr>
+        <tr>
+            <td><code>pip install django</code></td>
+            <td>Install Django</td>
+        </tr>
+        <tr>
+            <td><code>django-admin startproject project_name</code></td>
+            <td>Create new Django project</td>
+        </tr>
+        <tr>
+            <td><code>python manage.py startapp app_name</code></td>
+            <td>Create new Django app</td>
+        </tr>
+        <tr>
+            <td><code>python manage.py makemigrations</code></td>
+            <td>Create migrations for model changes</td>
+        </tr>
+        <tr>
+            <td><code>python manage.py migrate</code></td>
+            <td>Apply migrations to database</td>
+        </tr>
+        <tr>
+            <td><code>python manage.py createsuperuser</code></td>
+            <td>Create admin user for the admin panel</td>
+        </tr>
+        <tr>
+            <td><code>python manage.py runserver</code></td>
+            <td>Start development server</td>
+        </tr>
+    </table>
+    
+    <hr>
+    
+    <div class="tip">
+        <strong>Pro Tips:</strong>
+        <ul>
+            <li>Always register your models in <code>admin.py</code> to manage them through the admin interface</li>
+            <li>Use the <code>{% include %}</code> tag for reusable components like headers, footers, and buttons</li>
+            <li>Use <code>{% block %}</code> and <code>{% endblock %}</code> to create flexible layouts</li>
+            <li>Pass data to templates using context dictionaries in your views</li>
+            <li>Keep your templates organized in subfolders (pages/, components/) for better maintainability</li>
+        </ul>
+    </div>
+    
+    <div class="mental-map">
+        <strong>Complete Request-Response Flow:</strong>
+        <ol>
+            <li><strong>User visits</strong> → http://127.0.0.1:8000/product/5/</li>
+            <li><strong>URLs.py captures</strong> → the parameter '5' from the URL</li>
+            <li><strong>View function receives</strong> → the parameter and queries the database</li>
+            <li><strong>Model returns</strong> → the specific product with ID = 5</li>
+            <li><strong>View passes data</strong> → to a template through context dictionary</li>
+            <li><strong>Template renders</strong> → the HTML with dynamic data inserted</li>
+            <li><strong>User sees</strong> → a complete HTML page in their browser</li>
+        </ol>
+    </div>
+    
+    <p style="text-align: center; color: #666;">
+        <em>This guide provides a complete foundation for Django development. 
+        Continue learning about forms, authentication, and REST APIs for full-stack development.</em>
+    </p>
+    
+    <p style="text-align: center; color: #092e20; font-size: 1.3em;">
+        <strong>Happy Coding with Django! 🚀</strong>
+    </p>
+</body>
+</html>
